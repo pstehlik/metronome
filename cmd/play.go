@@ -30,8 +30,8 @@ var (
 
 // playCmd represents the metronome command
 var playCmd = &cobra.Command{
-	Use:     "play [speed beats noteValue]",
-	Example: "play 160 3 4",
+	Use:     "play [speed beats noteValue] or play [speed fib fib-steps]",
+	Example: "'play 120 3 4' or 'play 120 fib 8' to play the first 8 sequences of the fibonacci sequence",
 	Short:   "Simple metronome with cli and audio output",
 	Long:    `A very simple yet flexible metronome using time.Ticker and channels for communication, mainly used for testing some stuff.`,
 	Run: func(cmd *cobra.Command, args []string) {
@@ -49,7 +49,7 @@ var playCmd = &cobra.Command{
 		if beats, err = strconv.ParseUint(args[1], 10, 64); err != nil {
 			//is it an "fib" parameter?
 			if strings.Compare("fib", args[1]) != 0 {
-				panic(fmt.Errorf("Unable to parse %q as beats", args[1]))
+				panic(fmt.Errorf("Unable to parse %q as beats or 'fib'", args[1]))
 			}
 			beats = uint64(6920000);
 		}

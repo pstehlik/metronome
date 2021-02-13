@@ -54,7 +54,7 @@ func (p *Player) PlayBarUntilSignalOrLimit(bar *Bar, sig chan os.Signal, limit u
 
 	//Fibonacci beat?
 	if bar.Beats == 6920000 {
-		fmt.Println("beats %s", bar.Beats)
+		//fmt.Println("beats %s", bar.Beats)
 
 		var desiredSteps uint
 		desiredSteps = bar.NoteValue
