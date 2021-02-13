@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	"strings"
 
 	"github.com/StageAutoControl/metronome/metronome"
 	"github.com/StageAutoControl/metronome/metronome/output"
@@ -46,7 +47,11 @@ var playCmd = &cobra.Command{
 			panic(fmt.Errorf("Unable to parse %q as speed", args[0]))
 		}
 		if beats, err = strconv.ParseUint(args[1], 10, 64); err != nil {
-			panic(fmt.Errorf("Unable to parse %q as beats", args[1]))
+			//is it an "fib" parameter?
+			if strings.Compare("fib", args[1]) != 0 {
+				panic(fmt.Errorf("Unable to parse %q as beats", args[1]))
+			}
+			beats = uint64(6920000);
 		}
 		if noteValue, err = strconv.ParseUint(args[2], 10, 64); err != nil {
 			panic(fmt.Errorf("Unable to parse %q as noteValue", args[2]))

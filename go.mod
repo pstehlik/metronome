@@ -8,4 +8,5 @@ require (
 	github.com/inconshreveable/mousetrap v1.0.0
 	github.com/spf13/cobra v0.0.0-20170228191748-fcd0c5a1df88
 	github.com/spf13/pflag v0.0.0-20170418052314-2300d0f8576f
+	golang.org/x/net v0.0.0-20210119194325-5f4716e94777 // indirect
 )
